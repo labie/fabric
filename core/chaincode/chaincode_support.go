@@ -384,7 +384,7 @@ func (chaincodeSupport *ChaincodeSupport) getArgsAndEnv(cccid *ccprovider.CCCont
 		envs = append(envs, "CORE_CHAINCODE_LOGGING_FORMAT="+chaincodeSupport.logFormat)
 	}
 	switch cLang {
-	case pb.ChaincodeSpec_GOLANG, pb.ChaincodeSpec_CAR:
+	case pb.ChaincodeSpec_GOLANG, pb.ChaincodeSpec_CAR, pb.ChaincodeSpec_UNDEFINED:
 		args = []string{"chaincode", fmt.Sprintf("-peer.address=%s", chaincodeSupport.peerAddress)}
 	case pb.ChaincodeSpec_JAVA:
 		args = []string{"java", "-jar", "chaincode.jar", "--peerAddress", chaincodeSupport.peerAddress}
